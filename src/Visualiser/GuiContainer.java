@@ -160,10 +160,10 @@ public class GuiContainer {
 
         if (inHand) {
             cardBtn.setText(creature.getAttack() + "A  |  " + creature.getCurrentHealth() + "HP  |  " + creature.getCost() + "$");
-            if (engine.getActivePlayerOne() && creature.getCost() <= engine.getPlayerOne().getMana()) {
+            if (engine.getActivePlayerOne() && fromHandOne && creature.getCost() <= engine.getPlayerOne().getMana()) {
                 cardBtn.setBorder(new LineBorder(Color.GREEN));
             }
-            if (!engine.getActivePlayerOne() && creature.getCost() <= engine.getPlayerTwo().getMana()) {
+            if (!engine.getActivePlayerOne() && !fromHandOne && creature.getCost() <= engine.getPlayerTwo().getMana()) {
                 cardBtn.setBorder(new LineBorder(Color.GREEN));
             }
             cardBtn.addActionListener(e -> {
